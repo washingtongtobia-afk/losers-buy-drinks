@@ -1,0 +1,1 @@
+{"name":"losers-buy-drinks","version":"0.1.0","private":true,"description":"Multiplayer trivia game — core gameplay development","scripts":{"start":"node server.js","test":"node --test"},"engines":{"node":">=22"},"dependencies":{"@google-cloud/firestore":"^9.4.0"}}

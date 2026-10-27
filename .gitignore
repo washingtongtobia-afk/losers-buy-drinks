@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Runtime and local storage
+data/
+*.tmp
+
+# Environment and secrets
+.env
+.env.*
+*.key.json
+*credentials*.json
+service-account*.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# System files
+.DS_Store
+Thumbs.db

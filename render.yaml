@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: losers-buy-drinks
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DATA_DIR
+        value: /var/data
+      - key: NODE_VERSION
+        value: 22.16.0
+    disk:
+      name: game-rooms
+      mountPath: /var/data
+      sizeGB: 1
