@@ -445,8 +445,9 @@ async function act(b) {
 const server = http.createServer((req, res) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('Referrer-Policy', 'no-referrer');
-  if (req.method === 'GET' && req.url === '/health') {
+  if (['GET', 'HEAD'].includes(req.method) && req.url === '/health') {
     res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
+    if (req.method === 'HEAD') return res.end();
     res.end('OK');
     return;
   }
@@ -468,13 +469,14 @@ const server = http.createServer((req, res) => {
     });
     return;
   }
-  if (req.method === 'GET' && ['/', '/app.js', '/style.css'].includes(req.url)) {
+  if (['GET', 'HEAD'].includes(req.method) && ['/', '/app.js', '/style.css'].includes(req.url)) {
     const f = req.url === '/' ? 'index.html' : req.url.slice(1);
     res.writeHead(200, {
       'Content-Type': f.endsWith('.html') ? 'text/html; charset=utf-8' :
                       f.endsWith('.js') ? 'text/javascript; charset=utf-8' :
                       'text/css; charset=utf-8'
     });
+    if (req.method === 'HEAD') return res.end();
     fs.createReadStream(path.join(__dirname, 'public', f)).pipe(res);
     return;
   }

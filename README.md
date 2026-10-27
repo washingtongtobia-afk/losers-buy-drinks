@@ -2,6 +2,12 @@
 
 A two-player trivia party game. Both players join the same room from separate browser sessions. Wrong or unanswered guesses add coins; the player with more coins buys the drinks. Alcohol is optional.
 
+## Live Application
+
+The game is live on Google Cloud Run:
+- **Production URL**: https://losers-buy-drinks-xfn7u5yqta-uc.a.run.app
+- **GitHub Repository**: https://github.com/washingtongtobia-afk/losers-buy-drinks
+
 ## Start the game locally on your Mac
 
 1. Open **Terminal** in the project directory:
